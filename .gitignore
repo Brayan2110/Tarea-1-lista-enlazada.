@@ -1,0 +1,71 @@
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+struct Alien_t{
+	char nombre[30];
+	int id;
+	char *especie;
+	struct planetas_t *planetas;
+	struct idiomas_t *idiomas;
+	struct alien_t *siguiente;
+}; typedef struct Alien_t alien;
+
+struct planetas_t{
+	char nombre[30];
+	int starwars_code;
+	char *agua;
+	char *oxigeno;
+	struct planetas_ *siguiente;
+}; typedef struct planetas_t planeta;
+
+struct idiomas_t{
+	char nombre[30];
+	char *tipo;
+	int simbolos;
+	struct idiomas * siguientes;
+	struct planetas_t *planetas;
+}; typedef struct idiomas_t idioma;
+
+alien *lista_aliens;
+int main(){
+	lista_aliens = malloc(sizeof(struct Alien_t));
+	strcpy(lista_aliens->nombre, "Alien1:Alf");
+	lista_aliens->especie = malloc(strlen("triceptus"));
+	lista_aliens->id = 2246124;
+	strcpy(lista_aliens->especie,"triceptus");
+	lista_aliens->planetas=malloc(sizeof(struct planetas_t));
+	strcpy(lista_aliens->planetas->nombre,"namekusei");
+	lista_aliens->planetas->starwars_code = 255124;
+	lista_aliens->planetas->agua = malloc(strlen("si"));
+	strcpy(lista_aliens->planetas->agua, "si");
+	lista_aliens->planetas->oxigeno = malloc(strlen("si"));
+	strcpy(lista_aliens->planetas->oxigeno,"si");
+	lista_aliens->idiomas=malloc(sizeof(struct idiomas_t));
+	strcpy(lista_aliens->idiomas->nombre,"nameku");
+	lista_aliens->idiomas->tipo=malloc(strlen("nose"));
+	strcpy(lista_aliens->idiomas->tipo,"nose");
+	lista_aliens->idiomas->simbolos= 61;
+	lista_aliens->idiomas->planetas = malloc(sizeof(struct planetas_t));
+	strcpy(lista_aliens->idiomas->planetas->nombre,"namekusei");
+	lista_aliens->idiomas->planetas->starwars_code = 255124;
+	lista_aliens->idiomas->planetas->agua = malloc(strlen("si"));
+	strcpy(lista_aliens->idiomas->planetas->agua, "si");
+	lista_aliens->idiomas->planetas->oxigeno = malloc(strlen("si"));
+	strcpy(lista_aliens->idiomas->planetas->oxigeno,"si");
+	printf ("Nombre: %s\n",lista_aliens->nombre);
+	printf ("Id: %d\n",lista_aliens->id);
+    printf ("Especie: %s\n",lista_aliens->especie);
+    printf ("Planeta: %s\n",lista_aliens->planetas->nombre);
+    printf ("Starwars_code: %d\n",lista_aliens->planetas->starwars_code);
+    printf ("Agua: %s\n",lista_aliens->planetas->agua);
+    printf ("Oxigeno: %s\n",lista_aliens->planetas->oxigeno);
+    printf ("Idioma: %s\n",lista_aliens->idiomas->nombre);
+    printf ("Tipo: %s\n",lista_aliens->idiomas->tipo);
+    printf ("Simbolos: %d\n",lista_aliens->idiomas->simbolos);
+    printf ("Nombre del planeta donde se habla ese idioma: %s\n",lista_aliens->idiomas->planetas->nombre);
+    printf ("Starwars_code: %d\n",lista_aliens->idiomas->planetas->starwars_code);
+    printf ("Agua: %s\n",lista_aliens->idiomas->planetas->agua);
+    printf ("Oxigeno: %s\n",lista_aliens->idiomas->planetas->oxigeno);
+return 0;
+}
